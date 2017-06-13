@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Shared SCSS Examples</title>
+	<link rel="icon" type="image/png" href="favicon.png" />
+</head>
+
+<body>
+	<main ng-controller="MainController as main" class="Card">
+		<div class="Card-body">
+			<div>
+				<h3>Buttons</h3>
+				<button class="Button Button--confirm">Button--confirm</button>
+				<button class="Button Button--primary">Button--primary</button>
+				<button class="Button Button--reject">Button--reject</button>
+				<button class="Button Button--warning">Button--warning</button>
+				<button class="Button Button--cancel">Button--cancel</button>
+			</div>
+			<div ng-form="InputGroupForm">
+				<h3>Input Group</h3>
+				<div class="u-FlexRow">
+					<div>
+						<div class="InputGroup">
+							<label class="InputGroup-label" for="">InputGroup</label>
+							<input class="InputGroup-input" type="text" name="" ng-model="main.inputDefault" ng-init="main.inputDefault = 'Default'">
+						</div>
+						<div class="InputGroup">
+							<label class="InputGroup-label" for="">InputGroup and disabled input</label>
+							<input class="InputGroup-input" type="text" name="" ng-model="main.inputDefault" disabled>
+						</div>
+						<div class="InputGroup has-value">
+							<label class="InputGroup-label" for="">InputGroup.has-value</label>
+							<input class="InputGroup-input" type="text" name="" ng-model="main.inputHasValue" ng-init="main.inputHasValue = '.has-value'">
+						</div>
+						<div class="InputGroup has-value">
+							<label class="InputGroup-label" for="">InputGroup.has-value and disabled input</label>
+							<input class="InputGroup-input" type="text" name="" ng-model="main.inputHasValue" disabled>
+						</div>
+						<div class="InputGroup is-valid">
+							<label class="InputGroup-label" for="">InputGroup.is-valid</label>
+							<input class="InputGroup-input" type="text" name="" ng-model="main.inputIsValid" ng-init="main.inputIsValid = '.is-valid'">
+						</div>
+						<div class="InputGroup is-valid">
+							<label class="InputGroup-label" for="">InputGroup.is-valid and disabled input</label>
+							<input class="InputGroup-input" type="text" name="" ng-model="main.inputIsValid" disabled>
+						</div>
+						<div class="InputGroup has-error">
+							<label class="InputGroup-label" for="">InputGroup.has-error</label>
+							<input class="InputGroup-input" type="text" name="HasErrorInput" ng-model="main.inputHasError" ng-init="main.inputHasError = '.has-error'">
+						</div>
+						<div class="InputGroup has-error">
+							<label class="InputGroup-label" for="">InputGroup.has-error and disabled input</label>
+							<input class="InputGroup-input" type="text" name="HasErrorInput" ng-model="main.inputHasError" disabled>
+						</div>
+					</div>
+					<div>
+						<div class="InputGroup">
+							<label class="InputGroup-label" for="">InputGroup with icon</label>
+							<div class="InputGroup-iconWrapper">
+								<input class="InputGroup-input" type="text" name="" ng-model="main.inputDefault">
+								<div class="InputGroup-iconWrapper-icon" ng-bind-html="main.infoIcon"></div>
+							</div>
+						</div>
+						<div class="InputGroup">
+							<label class="InputGroup-label" for="">InputGroup with icon and disabled input</label>
+							<div class="InputGroup-iconWrapper">
+								<input class="InputGroup-input" type="text" name="" ng-model="main.inputDefault" disabled>
+								<div class="InputGroup-iconWrapper-icon" ng-bind-html="main.infoIcon"></div>
+							</div>
+						</div>
+						<div class="InputGroup has-value">
+							<label class="InputGroup-label" for="">InputGroup.has-value with icon</label>
+							<div class="InputGroup-iconWrapper">
+								<input class="InputGroup-input" type="text" name="" ng-model="main.inputHasValue">
+								<div class="InputGroup-iconWrapper-icon" ng-bind-html="main.infoIcon"></div>
+							</div>
+						</div>
+						<div class="InputGroup has-value">
+							<label class="InputGroup-label" for="">InputGroup.has-value with icon and disabled input</label>
+							<div class="InputGroup-iconWrapper">
+								<input class="InputGroup-input" type="text" name="" ng-model="main.inputHasValue" disabled>
+								<div class="InputGroup-iconWrapper-icon" ng-bind-html="main.infoIcon"></div>
+							</div>
+						</div>
+
+						<div class="InputGroup is-valid">
+							<label class="InputGroup-label" for="">InputGroup.is-valid with icon </label>
+							<div class="InputGroup-iconWrapper">
+								<input class="InputGroup-input" type="text" name="" ng-model="main.inputIsValid">
+								<div class="InputGroup-iconWrapper-icon" ng-bind-html="main.infoIcon"></div>
+							</div>
+						</div>
+						<div class="InputGroup is-valid">
+							<label class="InputGroup-label" for="">InputGroup.is-valid with icon and disabled input</label>
+							<div class="InputGroup-iconWrapper">
+								<input class="InputGroup-input" type="text" name="" ng-model="main.inputIsValid" disabled>
+								<div class="InputGroup-iconWrapper-icon" ng-bind-html="main.infoIcon"></div>
+							</div>
+						</div>
+						<div class="InputGroup has-error">
+							<label class="InputGroup-label" for="">InputGroup.has-error with icon </label>
+							<div class="InputGroup-iconWrapper">
+								<input class="InputGroup-input" type="text" name="HasErrorInput" ng-model="main.inputHasError">
+								<div class="InputGroup-iconWrapper-icon" ng-bind-html="main.infoIcon"></div>
+							</div>
+						</div>
+						<div class="InputGroup has-error">
+							<label class="InputGroup-label" for="">InputGroup.has-error with icon and disabled input</label>
+							<div class="InputGroup-iconWrapper">
+								<input class="InputGroup-input" type="text" name="HasErrorInput" ng-model="main.inputHasError" disabled>
+								<div class="InputGroup-iconWrapper-icon" ng-bind-html="main.infoIcon"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div>
+				<h3>Table</h3>
+				<div class="Table">
+					<table class="Table-table">
+						<thead class="TableHead">
+							<tr class="TableHead-row">
+								<th class="TableHead-cell">
+									<span class="TableHead-spacingText">Column 1<span class="TableHead-sortArrow" ng-bind-html="main.arrowIcon"></span>
+									<span class="TableHead-displayText">Column 1<span class="TableHead-sortArrow" ng-bind-html="main.arrowIcon"></span></span>
+									</span>
+								</th>
+								<th class="TableHead-cell Table-anyCell--center">
+									<span class="TableHead-spacingText">Column 2<span class="TableHead-sortArrow" ng-bind-html="main.arrowIcon"></span>
+									<span class="TableHead-displayText">Column 2<span class="TableHead-sortArrow" ng-bind-html="main.arrowIcon"></span></span>
+									</span>
+								</th>
+								<th class="TableHead-cell">
+									<span class="TableHead-spacingText">Column 3<span class="TableHead-sortArrow" ng-bind-html="main.arrowIcon"></span>
+									<span class="TableHead-displayText">Column 3<span class="TableHead-sortArrow" ng-bind-html="main.arrowIcon"></span></span>
+									</span>
+								</th>
+								<th class="TableHead-cell Table-anyCell--center Table-anyCell--fitToContent">
+									<span class="TableHead-spacingText">Column 4<span class="TableHead-sortArrow" ng-bind-html="main.arrowIcon"></span>
+									<span class="TableHead-displayText">Column 4<span class="TableHead-sortArrow" ng-bind-html="main.arrowIcon"></span></span>
+									</span>
+								</th>
+							</tr>
+						</thead>
+						<tbody class="TableBody">
+							<tr class="TableBody-row">
+								<td class="TableBody-cell">
+									Row 1 - Cell 1
+								</td>
+								<td class="TableBody-cell Table-anyCell--center">
+									Row 1 - Cell 2
+								</td>
+								<td class="TableBody-cell">
+									Row 1 - Cell 3
+								</td>
+								<td class="TableBody-cell Table-anyCell--center Table-anyCell--fitToContent">
+									Row 1 - Cell 4
+								</td>
+							</tr>
+							<tr class="TableBody-row">
+								<td class="TableBody-cell">
+									Row 2 - Cell 1
+								</td>
+								<td class="TableBody-cell Table-anyCell--center">
+									Row 2 - Cell 2
+								</td>
+								<td class="TableBody-cell">
+									Row 2 - Cell 3
+								</td>
+								<td class="TableBody-cell Table-anyCell--center Table-anyCell--fitToContent">
+									Row 2 - Cell 4
+								</td>
+							</tr>
+							<tr class="TableBody-row">
+								<td class="TableBody-cell">
+									Row 3 - Cell 1
+								</td>
+								<td class="TableBody-cell Table-anyCell--center">
+									Row 3 - Cell 2
+								</td>
+								<td class="TableBody-cell">
+									Row 3 - Cell 3
+								</td>
+								<td class="TableBody-cell Table-anyCell--center Table-anyCell--fitToContent">
+									Row 3 - Cell 4
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div>
+				<h3>Checkbox Select List</h3>
+				<div class="CheckboxSelectList CheckboxSelectList--primary" ng-repeat="checkbox in main.checkboxSelectList">
+					<input class="CheckboxSelectList-input" ng-model="checkbox.isCheck" type="checkbox" id="{{checkbox.name + $index}}-default"
+					    ng-disabled="checkbox.disabled" />
+					<label class="CheckboxSelectList-label" for="{{checkbox.name + $index}}-default">
+					<span class="CheckboxSelectList-icon">
+						<span class="CheckboxSelectList-iconChecked">&#9745;</span>
+						<span class="CheckboxSelectList-iconUnchecked">&#9744;</span>
+					</span>
+					<span class="CheckboxSelectList-text">{{checkbox.text}}</span>
+				</label>
+				</div>
+				<div class="CheckboxSelectList CheckboxSelectList--confirmation" ng-repeat="checkbox in main.checkboxSelectList">
+					<input class="CheckboxSelectList-input" ng-model="checkbox.isCheck" type="checkbox" id="{{checkbox.name + $index}}-confirmation"
+					    ng-disabled="checkbox.disabled" />
+					<label class="CheckboxSelectList-label" for="{{checkbox.name + $index}}-confirmation">
+					<span class="CheckboxSelectList-icon">
+						<span class="CheckboxSelectList-iconChecked">&#9745;</span>
+						<span class="CheckboxSelectList-iconUnchecked">&#9744;</span>
+					</span>
+					<span class="CheckboxSelectList-text">{{checkbox.text}}</span>
+				</label>
+				</div>
+				<div class="CheckboxSelectList CheckboxSelectList--warning" ng-repeat="checkbox in main.checkboxSelectList">
+					<input class="CheckboxSelectList-input" ng-model="checkbox.isCheck" type="checkbox" id="{{checkbox.name + $index}}-warning"
+					    ng-disabled="checkbox.disabled" />
+					<label class="CheckboxSelectList-label" for="{{checkbox.name + $index}}-warning">
+					<span class="CheckboxSelectList-icon">
+						<span class="CheckboxSelectList-iconChecked">&#9745;</span>
+						<span class="CheckboxSelectList-iconUnchecked">&#9744;</span>
+					</span>
+					<span class="CheckboxSelectList-text">{{checkbox.text}}</span>
+				</label>
+				</div>
+				<div class="CheckboxSelectList CheckboxSelectList--error" ng-repeat="checkbox in main.checkboxSelectList">
+					<input class="CheckboxSelectList-input" ng-model="checkbox.isCheck" type="checkbox" id="{{checkbox.name + $index}}-error"
+					    ng-disabled="checkbox.disabled" />
+					<label class="CheckboxSelectList-label" for="{{checkbox.name + $index}}-warning">
+					<span class="CheckboxSelectList-icon">
+						<span class="CheckboxSelectList-iconChecked">&#9745;</span>
+						<span class="CheckboxSelectList-iconUnchecked">&#9744;</span>
+					</span>
+					<span class="CheckboxSelectList-text">{{checkbox.text}}</span>
+				</label>
+				</div>
+			</div>
+		</div>
+	</main>
+</body>
+
+</html>

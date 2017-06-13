@@ -1,0 +1,55 @@
+.Card {
+	// layout
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	flex-shrink: 1;
+	margin: 2rem;
+	// theme
+	background-color: $white;
+	border-radius: $border-radius;
+	box-shadow: $whiteframe-shadow-2dp;
+
+	&-scrollableContent {
+		display: flex;
+		flex-grow: 1;
+		flex-shrink: 1;
+		flex-basis: 0;
+		flex-direction: column;
+		overflow: auto;
+	}
+
+	&-body {
+		display: flex;
+		flex-direction: column;
+		flex-grow: 1;
+		flex-shrink: 1;
+		padding: 2rem;
+        overflow: auto;
+	}
+
+	&-bodyTitle {
+		margin: 0 0 1rem 0;
+		font-size: 1.25rem;
+		font-weight: 300;
+	}
+
+	&-footer {
+		display: flex;
+		flex-shrink: 0;
+		border-width: 0.0625rem 0 0 0;
+		//min-height: 3.75rem;
+		padding: 1rem 2rem;
+		//theme
+		background-color: $haze-3;
+		border-color: $tower;
+		border-radius: 0 0 0.25rem 0.25rem;
+		border-style: solid;
+
+	}
+    &-footerMessage {
+        margin: 0;
+        padding: 0;
+        font-size: 0.75rem;
+    }
+}

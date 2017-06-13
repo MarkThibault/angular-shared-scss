@@ -1,0 +1,27 @@
+@mixin button-reset {
+    //layout
+    margin: 0;
+    padding: 0;
+
+    //theme
+    border: none;
+    background: transparent;
+    color: inherit;
+    font-size: inherit;
+    line-height: 1;
+    outline: none;
+    text-align: left;
+}
+
+@mixin addSvgStyles () {
+    & > svg,
+    & > svg path,
+    & > svg g,
+    & > svg line,
+    & > svg circle,
+    & > svg rect,
+    & > svg polygon,
+    & > svg ellipse {
+        @content
+    }
+}

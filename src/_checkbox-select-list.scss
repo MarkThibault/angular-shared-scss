@@ -1,0 +1,140 @@
+@mixin createCheckboxSelectListType($defaultColor, $defaultBackgroundColor, $hoverColor, $hoverBackgroundColor) {
+    #{$baseCheckboxSelectListClass}-label {
+        background-color: $defaultBackgroundColor;
+        color: $defaultColor;
+        &:hover {
+            background-color: darken($hoverBackgroundColor, 6%);
+            color: $hoverColor;
+        }
+      }
+
+      #{$baseCheckboxSelectListClass}-input:checked + #{$baseCheckboxSelectListClass}-label {
+        background-color: $hoverBackgroundColor;
+        color: $hoverColor;
+
+        &:hover {
+            background-color: darken($hoverBackgroundColor, 6%);        
+        }
+    }
+
+    #{$baseCheckboxSelectListClass}-input:disabled + #{$baseCheckboxSelectListClass}-label {
+        cursor: default;
+        &:hover {
+            background-color: $defaultBackgroundColor;
+            color: $defaultColor;
+        }
+        #{$baseCheckboxSelectListClass}-text, #{$baseCheckboxSelectListClass}-icon {
+            opacity: 0.5;   
+        }
+    }
+    #{$baseCheckboxSelectListClass}-input:disabled:checked + #{$baseCheckboxSelectListClass}-label {
+        background-color: $hoverBackgroundColor;
+        color: $hoverColor;
+        &:hover {
+            background-color: $hoverBackgroundColor;
+            color: $hoverColor;
+        }
+    }
+}
+
+$CheckboxSelectList-borderTopColor: $tiara !default;
+$CheckboxSelectList-lable-backgroundColor: transparent !default;
+$CheckboxSelectList-lable-color: inherit !default;
+$CheckboxSelectList-lable-padding: $content-padding-topBottom $content-padding-leftRight !default;
+$CheckboxSelectList-lable-transition: all 0.3s $cubic-bezier !default;
+$CheckboxSelectList-lable-hover-backgroundColor: $link-water !default;
+$CheckboxSelectList-lable-hover-color: $astral-1 !default;
+$CheckboxSelectList-icon-padding: 0 0.5rem 0 0 !default;
+$CheckboxSelectList-icon-fontSize: 1rem !default;
+$CheckboxSelectList-icon-width: 0.75rem !default;
+$CheckboxSelectList-text-fontSize: $content-font-size !default;
+
+$CheckboxSelectList-confirmation-lable-backgroundColor: transparent !default;
+$CheckboxSelectList-confirmation-lable-color: inherit !default;
+$CheckboxSelectList-confirmation-lable-hover-backgroundColor: $peppermint !default;
+$CheckboxSelectList-confirmation-lable-hover-color: $apple !default;
+
+$CheckboxSelectList-warning-lable-backgroundColor: transparent !default;
+$CheckboxSelectList-warning-lable-color: inherit !default;
+$CheckboxSelectList-warning-lable-hover-backgroundColor: $provincial-pink !default;
+$CheckboxSelectList-warning-lable-hover-color: $ecstasy !default;
+
+$CheckboxSelectList-error-lable-backgroundColor: transparent !default;
+$CheckboxSelectList-error-lable-color: inherit !default;
+$CheckboxSelectList-error-lable-hover-backgroundColor: $beauty-bush !default;
+$CheckboxSelectList-error-lable-hover-color: $persian-red !default;
+
+$baseCheckboxSelectListClass: '.CheckboxSelectList';
+
+#{$baseCheckboxSelectListClass} {
+  position: relative;
+  &-input {
+    position: absolute;
+    opacity: 0;
+  }
+  &-label {
+    display: flex;
+    align-items: center;
+    padding: $CheckboxSelectList-lable-padding;
+    cursor: pointer;
+    transition: $CheckboxSelectList-lable-transition;
+  }
+  &-icon {
+    display: flex;
+    justify-content: center;
+    padding: $CheckboxSelectList-icon-padding;
+    font-size: $CheckboxSelectList-icon-fontSize;
+    line-height: 1;
+    width: $CheckboxSelectList-icon-width;
+  }
+  &-iconUnchecked {
+    display: block;
+  }
+  &-iconChecked {
+    display: none;
+  }
+  &-text {
+    font-size: $CheckboxSelectList-text-fontSize;
+    line-height: 1;
+  }
+  
+  &-input:checked + &-label &-iconChecked {
+    display: inline-block;
+  }
+  &-input:checked + &-label &-iconUnchecked {
+    display: none;
+  }
+  & + & {
+    border-top: 0.0625rem solid $CheckboxSelectList-borderTopColor;
+  }
+
+  &--primary {
+    @include createCheckboxSelectListType(
+        $CheckboxSelectList-lable-color,
+        $CheckboxSelectList-lable-backgroundColor,
+        $CheckboxSelectList-lable-hover-color,
+        $CheckboxSelectList-lable-hover-backgroundColor);
+  }
+
+  &--confirmation {
+      @include createCheckboxSelectListType(
+        $CheckboxSelectList-confirmation-lable-color,
+        $CheckboxSelectList-confirmation-lable-backgroundColor,
+        $CheckboxSelectList-confirmation-lable-hover-color,
+        $CheckboxSelectList-confirmation-lable-hover-backgroundColor);    
+  }
+  &--warning {
+      @include createCheckboxSelectListType(
+        $CheckboxSelectList-warning-lable-color,
+        $CheckboxSelectList-warning-lable-backgroundColor,
+        $CheckboxSelectList-warning-lable-hover-color,
+        $CheckboxSelectList-warning-lable-hover-backgroundColor);    
+  }
+  &--error {
+      @include createCheckboxSelectListType(
+        $CheckboxSelectList-error-lable-color,
+        $CheckboxSelectList-error-lable-backgroundColor,
+        $CheckboxSelectList-error-lable-hover-color,
+        $CheckboxSelectList-error-lable-hover-backgroundColor);    
+  }
+}

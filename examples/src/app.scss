@@ -1,0 +1,25 @@
+@import '../../src/index';
+
+body, html {
+    // layout
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+
+    // theme
+    background-color: $haze-3;
+    color: $cape-cod-1;
+    font-family: sans-serif;
+    font-size: 1rem;
+}
+
+.u-FlexRow {
+    display: flex;
+
+    > * {
+        margin-right: 2rem;
+    }
+}

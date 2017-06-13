@@ -1,0 +1,204 @@
+// settings
+$Table-margin: 0 !default;
+$Table-padding: 1.25rem 0 0 0 !default;
+$TableHead-cell-color: $astral-1 !default;
+$TableHead-cell-font-weight: 400 !default;
+$TableHead-cell-padding: $content-padding-leftRight !default;
+$TableHead-cell-borderColor: $tower !default;
+$TableBody-row--hover-backgound: $link-water !default;
+$TableBody-row--hover-color: $astral-1 !default;
+$TableBody-cell-borderColor: $tiara !default;
+$TableBody-cell-font-size: 0.875rem !default;
+$TableBody-cell-padding: $content-padding-topBottom $content-padding-leftRight !default;
+
+// component
+.Table {
+    //layout
+    display: flex;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    margin: $Table-margin;
+    padding: $Table-padding;
+    position: relative;
+
+    //theme
+    background-color: $white;
+
+    // descendents
+    &-table {
+        //layout
+        overflow: auto;
+        width: 100%;
+
+        //theme
+        border-spacing: 0;
+        border-top: 0.0625rem solid $TableHead-cell-borderColor;
+    }
+}
+
+
+// sub components
+.TableHead {
+    // descendents
+    &-row {
+    }
+
+    &-cell {
+        //layout
+        height: 0;
+        padding-bottom: 0;
+        padding-left: $TableHead-cell-padding;
+        padding-right: $TableHead-cell-padding;
+        padding-top: 0;
+
+        //theme
+        font-size: 0.875rem;
+        font-weight: 100;
+        text-align: left;
+        line-height: 0;
+    }
+
+    &-spacingText {
+        //layout
+        display: inline-block;
+        height: 0;
+
+        //theme
+        color: transparent;
+        fill: transparent;
+    }
+
+    &-displayText {
+        //layout
+        display: block;
+        top: 0;
+        position: absolute;
+
+        //theme
+        color: $TableHead-cell-color;
+        fill: $TableHead-cell-color;
+        font-weight: $TableHead-cell-font-weight; 
+        line-height: 1rem;
+    }
+
+    &-sortArrow {
+        //layout
+        display: none;
+        height: 0.2rem;
+        margin-bottom: 0.15rem;
+        margin-left: 0.5rem;
+        width: 0.5rem;
+
+        //theme
+        visibility: hidden;
+
+        & > svg {
+            //layout
+            display: block;
+
+            //theme
+            transition: transform 0.3s $cubic-bezier;
+        }
+    }
+
+    // modifiers -- specific for Angular Smart Table library
+    // the following are based off of having the [st-sort] attribute
+
+    // when sort arrow should exist
+    &-cell[st-sort] &-sortArrow {
+        //layout
+        display: inline-block;
+    }
+
+    // when cursor should be a pointer
+    &-cell[st-sort] {
+        cursor: pointer;
+    }
+
+    // last-child compromised so all columns do not jump when arrow is displayed 
+    &-cell[st-sort]:last-child &-sortArrow {
+        //layout
+        display: none;
+    }
+
+    // when sort arrows should be displayed
+    &-cell[st-sort].st-sort-ascent &-sortArrow,
+    &-cell[st-sort].st-sort-descent &-sortArrow {
+        //layout
+        display: inline-block;
+
+        //theme
+        visibility: visible;
+    }
+
+    // direction of arrow
+    &-cell[st-sort].st-sort-ascent &-sortArrow > svg {
+        //theme
+        transform: rotateX(0deg);
+    }
+
+    &-cell[st-sort].st-sort-descent &-sortArrow > svg {
+        //theme
+        transform: rotateX(180deg);
+    }
+}
+
+// sub components
+.TableBody {
+    // descendents
+    &-row {
+        //theme
+        transition: all 0.3s $cubic-bezier;
+
+        &:hover {
+            //theme
+            background-color: $TableBody-row--hover-backgound;
+            color: $TableBody-row--hover-color;
+            fill: $TableBody-row--hover-color;
+        }
+
+        &.ng-enter {
+            //theme
+            animation: $fade-in;
+        }
+
+        &.ng-leave {
+            //theme
+            transition: all 0s linear;
+        }
+    }
+
+    &-cell {
+        //layout
+        padding: $TableBody-cell-padding;
+        
+        //theme
+        border-bottom: 0.0625rem solid $TableBody-cell-borderColor;
+        font-size: $TableBody-cell-font-size;
+        line-height: 1;
+    }
+    
+    &-cell--noPadding{
+        //layout
+        padding: 0;
+    }
+
+    & .ng-isolate-scope {
+        display: inline-block;
+    }
+}
+
+// modifiers
+.Table-anyCell--center {
+    //theme
+    text-align: center;
+}
+
+.Table-anyCell--fitToContent {
+    //layout
+    width: 1%;
+
+    //theme
+    white-space: nowrap;
+}

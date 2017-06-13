@@ -1,0 +1,24 @@
+@import "settings";
+
+$fade-in: fadeIn 0.6s $cubic-bezier 0s 1 forwards !default;
+$fade-out: fadeOut 0.6s $cubic-bezier 0s 1 forwards !default;
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes fadeOut {
+	0% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+	}
+}

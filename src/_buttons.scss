@@ -1,0 +1,196 @@
+//imports
+@import 'settings';
+@import 'mixins';
+
+//module variables
+$button-border-radius: 0.25rem !default;
+$button-padding: $content-padding-topBottom $content-padding-leftRight !default;
+$button-min-width: 7rem !default;
+$button-spacing: 0.5rem !default;
+$button-font-size: $content-font-size !default;
+
+$button-primary-color: $white !default;
+$button-primary-background-color: $astral-1 !default;
+$button-primary-hover-color: $white !default;
+$button-primary-hover-background-color: $nile-blue !default;
+
+$button-secondary-color: $white !default;
+$button-secondary-background-color: $sirocco-2 !default;
+$button-secondary-hover-color: $white !default;
+$button-secondary-hover-background-color: $sirocco-7 !default;
+
+$button-cancel-color: $sirocco-7 !default;
+$button-cancel-background-color: transparent !default;
+$button-cancel-hover-color: $white !default;
+$button-cancel-hover-background-color: $sirocco-7 !default;
+
+$button-confirm-color: $white !default;
+$button-confirm-background-color: $apple !default;
+$button-confirm-hover-color: $white !default;
+$button-confirm-hover-background-color: $apple-3 !default;
+
+$button-warning-color: $white !default;
+$button-warning-background-color: $ecstasy !default;
+$button-warning-hover-color: $white !default;
+$button-warning-hover-background-color: $red-stage !default;
+
+$button-reject-color: $white !default;
+$button-reject-background-color: $persian-red !default;
+$button-reject-hover-color: $white !default;
+$button-reject-hover-background-color: $old-brick !default;
+
+@mixin createButtonStyle ($color, $backgroundColor, $hoverColor, $hoverBackgroundColor) {
+    //theme
+    background-color: $backgroundColor;
+    color: $color;
+    cursor: pointer;
+
+    &:hover, &:focus {
+        //theme
+        color: $hoverColor;
+        background-color: $hoverBackgroundColor;
+    }
+
+    &.disabled, &[disabled], &.disabled, &[disabled],
+    &.disabled:hover, &[disabled]:hover, &.disabled:hover, &[disabled]:hover,
+    &.disabled:focus, &[disabled]:focus, &.disabled:focus, &[disabled]:focus {
+        //theme
+        background-color: $backgroundColor;
+        color: $color;
+        cursor: default;
+        opacity: 0.5;
+    }
+}
+
+//component
+.ButtonsContainer {
+    //layout
+    align-items: center;
+    display: flex;;
+    flex-grow: 1;
+
+    // modifiers
+    &--left {
+        .Button {
+            //layout
+            margin-right: $button-spacing;
+        }
+    }
+
+    &--right {
+        //layout
+        flex-direction: row-reverse;
+
+        .Button {
+            //layout
+            margin-left: $button-spacing;
+        }
+    }
+
+    &--center {
+        //layout
+        justify-content: center;
+
+        .Button {
+            //layout
+            margin-right: $button-spacing;
+        }
+
+        .Button:last-child {
+            //layout
+            margin-right: 0;
+        }
+    }
+}
+
+// component
+.Button {
+    //layout
+    @include button-reset;
+    min-width: $button-min-width;
+    padding: $button-padding;
+
+    //theme
+    border-radius: $button-border-radius;
+    font-size: $button-font-size;
+    text-align: center;
+    transition: background-color 0.3s $cubic-bezier;
+
+    // decendents
+    // Firefox requires a sub-element to use flexbox in a button
+    &-content {
+        //layout
+        align-items: center;
+        display: flex;;
+        justify-content: center;
+    }
+
+    &-count {
+        //layout
+        margin-left: 0.5rem;
+        //theme
+        letter-spacing: 0.1rem;
+    }
+
+
+    // modifiers
+    &--primary {
+        //theme
+        @include createButtonStyle (
+            $button-primary-color,
+            $button-primary-background-color,
+            $button-primary-hover-color,
+            $button-primary-hover-background-color
+        );
+    }
+
+    &--secondary {
+        //theme
+        @include createButtonStyle (
+            $button-secondary-color,
+            $button-secondary-background-color,
+            $button-secondary-hover-color,
+            $button-secondary-hover-background-color
+        );
+    }
+
+    &--cancel {
+        //theme
+        @include createButtonStyle (
+            $button-cancel-color,
+            $button-cancel-background-color,
+            $button-cancel-hover-color,
+            $button-cancel-hover-background-color
+        );
+    }
+
+    &--confirm {
+        //theme
+        @include createButtonStyle (
+            $button-confirm-color,
+            $button-confirm-background-color,
+            $button-confirm-hover-color,
+            $button-confirm-hover-background-color
+        );
+    }
+
+    &--warning {
+        //theme
+        @include createButtonStyle (
+            $button-warning-color,
+            $button-warning-background-color,
+            $button-warning-hover-color,
+            $button-warning-hover-background-color
+        );
+    }
+
+    &--reject {
+        //theme
+        @include createButtonStyle (
+            $button-reject-color,
+            $button-reject-background-color,
+            $button-reject-hover-color,
+            $button-reject-hover-background-color
+        );
+    }
+}

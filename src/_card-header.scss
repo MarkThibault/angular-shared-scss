@@ -1,0 +1,94 @@
+//component
+.Card-header {
+    //layout
+	display: flex;
+    flex-shrink: 0;
+    border-width: 0 0 1px 0;
+    //min-height: 3.75rem;
+    padding: 1rem 2rem;
+
+    //theme
+    background-color: $haze-3;
+	border-color: $tower;
+	border-radius: 0.25rem 0.25rem 0 0;
+	border-style: solid;
+}
+
+.CardHeaderTitle {
+    //layout
+	display: flex;
+	margin-top: -0.5rem;
+	margin-bottom: -0.5rem;
+    
+    //descendants
+	&-backIcon {
+	    display: flex;
+	    align-items: center;
+	    margin-right: 1rem;
+
+	    &:hover polygon, &:hover path {
+            fill: #28628F;
+        }
+
+        &:focus {
+            outline: none;
+
+            & polygon, & path {
+                fill: #28628F;
+            }
+        }
+	}
+
+	&-svg {
+        transition: all 0.6s $cubic-bezier;
+        display: block;
+        height: 1.5rem;
+        width: 1.5rem;
+
+        & polygon, & path {
+            transition: all 0.3s $cubic-bezier;
+            fill: $sirocco-7;
+        }
+    }
+
+	&-name {
+	    //layout
+	    display: flex;
+	    align-items: center;
+
+	    //theme
+	    color: $sirocco-7;
+	    font-size: 1.5rem;
+	}
+}
+
+.CardHeaderDetails {
+    border-width: 0 0 0 0.0625rem;
+	display: flex;
+	margin-left: 2rem;
+	padding-left: 2rem;
+    
+    //theme
+    border-color: $tower;
+	border-style: solid;
+
+    //descendants
+	&-detail {
+	    display: flex;
+	    flex-direction: column;
+	    justify-content: center;
+
+        font-size: 1.125rem;
+        line-height: 1;
+
+        & + & {
+            margin-left: 2rem;
+        }
+	}
+
+	&-label {
+        margin-bottom: 0.25rem;
+
+	    font-size: 0.75rem;
+	}
+}
